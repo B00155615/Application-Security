@@ -9,6 +9,7 @@ from AdminPanel.AdminPanel import admin_panel
 app = Flask(__name__)
 app.secret_key = 'yuveyuveyu'
 
+
 from extensions import mysql
 app.config['MYSQL_HOST'] = 'localhost'
 app.config['MYSQL_USER'] = 'root'
