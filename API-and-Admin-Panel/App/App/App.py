@@ -1,18 +1,18 @@
 import sys
 import os
-[sys.path.append('/var/www/html/env/App/App')]
 from flask import Flask, redirect
-from App.Website.LandingPage import landing
-from App.API.RestAPI import rest_api
-from App.AdminPanel.AdminPanel import admin_panel
+from Website.LandingPage import landing
+from API.RestAPI import rest_api
+from AdminPanel.AdminPanel import admin_panel
+
 
 app = Flask(__name__)
 app.secret_key = 'yuveyuveyu'
 
 from extensions import mysql
 app.config['MYSQL_HOST'] = 'localhost'
-app.config['MYSQL_USER'] = 'aquarian'
-app.config['MYSQL_PASSWORD'] = 'Aquarian123*'
+app.config['MYSQL_USER'] = 'root'
+app.config['MYSQL_PASSWORD'] = ''
 app.config['MYSQL_DB'] = 'aquarian'
 
 APP_ROOT = os.path.dirname(os.path.abspath(__file__))

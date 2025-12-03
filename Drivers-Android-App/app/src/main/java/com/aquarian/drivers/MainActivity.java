@@ -105,7 +105,7 @@ public class MainActivity extends AppCompatActivity {
                 ((GlobalVariables) getApplicationContext()).setLatitude(location.getLatitude());
                 ((GlobalVariables) getApplicationContext()).setLongitude(location.getLongitude());
                 RequestQueue queue = Volley.newRequestQueue(MainActivity.this);
-                String url ="http://soc-web-liv-82.napier.ac.uk/api/drivers/" + DriverID + "/location?Location=" + location.getLatitude() + "," + location.getLongitude();
+                String url ="/api/drivers/" + DriverID + "/location?Location=" + location.getLatitude() + "," + location.getLongitude();
 
 // Request a string response from the provided URL.
                 StringRequest stringRequest = new StringRequest(Method.PUT, url,

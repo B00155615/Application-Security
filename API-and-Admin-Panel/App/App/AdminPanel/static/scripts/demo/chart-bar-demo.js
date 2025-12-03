@@ -31,7 +31,7 @@ var labels = [];
 var revenue = [];
 var receipts = [];
 var largest = 0;
-$.getJSON("http://soc-web-liv-82.napier.ac.uk/api/money", function(result){
+$.getJSON("/api/money", function(result){
     for (var i=0; i<result.length; i++)
     {
       labels.push(result[i].Month);

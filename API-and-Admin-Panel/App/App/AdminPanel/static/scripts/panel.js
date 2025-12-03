@@ -22,9 +22,9 @@ function getData (data, l1, l2) {
 	{
 		tablename = data;
 		setActiveButton(data);
-		$.getJSON("http://soc-web-liv-82.napier.ac.uk/api/" + data, function(result){
+		$.getJSON("/api/" + data, function(result){
 	    	totalNum = result.length;
-	    	$.getJSON("http://soc-web-liv-82.napier.ac.uk/api/" + data + "?limit1="+l1+"&limit2="+l2, function(result){
+	    	$.getJSON("/api/" + data + "?limit1="+l1+"&limit2="+l2, function(result){
 	    		makeTable(result, l1, l2);
 	    	});
 	    });
@@ -274,7 +274,7 @@ function updateRecord(formId, elemId, table){
 	console.log(str);
 	$.ajax({
 	  method: "PUT",
-	  url: "http://soc-web-liv-82.napier.ac.uk/api/" + table + "/" + elemId + "?" + str,
+	  url: "/api/" + table + "/" + elemId + "?" + str,
 	  success: function(dat) {
 	  		getData(table,10,0);
 		}
@@ -284,7 +284,7 @@ function updateRecord(formId, elemId, table){
 function deleteRecord(table){
 	$.ajax({
 	  method: "DELETE",
-	  url: "http://soc-web-liv-82.napier.ac.uk/api/" + table + "/" + elemId,
+	  url: "/api/" + table + "/" + elemId,
 	  success: function(dat) {
 	  		 getData(table,10,0);
 		}
@@ -300,7 +300,7 @@ function createRecord(table){
 	str = str.replace(/\s/g, 'None');
 	$.ajax({
 	  method: "POST",
-	  url: "http://soc-web-liv-82.napier.ac.uk/api/" + table + "?" + str,
+	  url: "/api/" + table + "?" + str,
 	  success: function(dat) {
 	  		getData(table,10,0);
 		}
@@ -327,7 +327,7 @@ function changePassword()
 	{
 		$.ajax({
 		  method: "PUT",
-		  url: "http://soc-web-liv-82.napier.ac.uk/admin/changepassword?oldPassowrd="+oldpas+"&newPassword="+newpas1,
+		  url: "/admin/changepassword?oldPassowrd="+oldpas+"&newPassword="+newpas1,
 		  success: function(dat) {
 				if(dat.Status=='Error')
 				{
@@ -394,9 +394,9 @@ function buildLink(l1, l2)
 		var link = 'jobs/' + option;
 		tablename = 'jobs';
 		setActiveButton('jobs');
-		$.getJSON("http://soc-web-liv-82.napier.ac.uk/api/" + link.toLowerCase(), function(result){
+		$.getJSON("/api/" + link.toLowerCase(), function(result){
 	    	totalNum = result.length;
-	    	$.getJSON("http://soc-web-liv-82.napier.ac.uk/api/" + link.toLowerCase() + "?limit1="+l1+"&limit2="+l2, function(result){
+	    	$.getJSON("/api/" + link.toLowerCase() + "?limit1="+l1+"&limit2="+l2, function(result){
 	    		makeTable(result, l1, l2);
 	    	});
 	    });

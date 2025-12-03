@@ -479,7 +479,7 @@ def getAssignedJobs(id):
       #resp = json.loads(json.dumps(json_data, default=str))
       #resp = json.loads(resp.content)
       full_array=[]
-      url = "http://soc-web-liv-82.napier.ac.uk/api/jobs/full/"
+      url = "/api/jobs/full/"
       for data in json_data:
         myResponse = requests.get(url + str(data['JobID']))
         if (myResponse.ok):

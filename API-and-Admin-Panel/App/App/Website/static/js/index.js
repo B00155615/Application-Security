@@ -24,7 +24,7 @@ function getLocation() {
     }
     else {
       var trackID = x;  
-      var trackData = "http://soc-web-liv-82.napier.ac.uk/api/jobs/"+ trackID +"/location";      
+      var trackData = "/api/jobs/"+ trackID +"/location";      
       var trackingLocation = getLocationVars(trackData);
     }
   }
